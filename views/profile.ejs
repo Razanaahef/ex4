@@ -1,0 +1,82 @@
+<!--Majd Saad 315685586, Razan Abo alhija 322509118.-->
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<meta charset="UTF-8">
+	<title>Mickey the Debug Dog</title>
+	<link href="/css/profile.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
+</head>
+<body class="background_image">
+	<div class="main_container">
+		<div class="Banner" style="background-image: url('<%=id%>/banner.png');">
+			<div class="Banner_inner">
+                <img src="./<%= id %>/profile.png" alt="profile"/>
+			</div>
+		</div>
+		<h1> <%=title%> </h1>
+		<div class="Block Info">
+			<div class="Text_Block">
+				<p>
+					<%- titleDescribtion %>
+				</p>
+				<% for (let i=0; i < bioList.length; i++) { %>
+					<div class="pair">
+						<p class="option">
+                            <%- bioList[i].bioKey %>
+                        </p>
+					    <p class="value">
+						    <%- bioList[i].bioData %>
+					    </p>
+					</div>
+				<% } %>
+			</div>
+			<div class="Img_Block">
+				<img src="./<%= id %>/image1.png" alt="profile1"/>
+			</div>
+		</div>
+
+		<div class="Block Endorsement">
+			<div class="Text_Block">
+				<h2> Endorsement</h2>
+                <% for (let i=0; i < filteredFiles.length; i++) { %>
+					<div class="recommend">
+						<p>
+							<%= filteredFiles[i].recommend %>
+						</p>
+						<hr />
+						<span>
+							<%= filteredFiles[i].recommender %>
+						</span>
+					</div>
+				<% } %>
+			</div>
+			<div class="Img_Block">
+				<img src="./<%= id %>/image2.png" alt="profile2"/>
+			</div>
+		</div>
+		<!--  Endorsement end -->
+		<!--  Friends start -->
+		<div class="Block Friends">
+			<div class="Text_Block">
+				<h2> Meet the whole debugging squad </h2>
+			</div>
+			<div class="friends_img_Block">
+				<% for (let i=0; i < friends.length; i++) { %>
+					<% if(friends[i] !== id) { %> 
+						<a href="http://localhost:3000/profile?id=<%= friends[i] %>">
+							<img class="Friends_images" src="./<%= friends[i] %>/profile.png" alt="Friend's Profile">
+						</a> 
+					<% } %>
+				<% } %>
+			</div>
+		</div>
+		<!-- Friends start -->
+		<div  class="buttom_title">
+			Zefat Academic College
+		</div>
+	</div>
+</body>
+
+</html>
